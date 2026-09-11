@@ -3,54 +3,152 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation. A research project from XPeng Inc.">
+  <meta name="description" content="X-AuT progressively compresses the Qwen3-ASR audio encoder through behavioral layer selection and cross-scale distillation.">
+  <meta property="og:title" content="X-AuT | XPENG AI">
+  <meta property="og:description" content="Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation.">
+  <meta property="og:image" content="https://xpeng-ai.github.io/x-aut/assets/xpomni_logo.jpg">
   <title>X-AuT | XPENG AI</title>
   <link rel="canonical" href="https://xpeng-ai.github.io/x-aut/">
   <link rel="icon" type="image/png" sizes="512x512" href="../assets/xpeng-favicon.png?v=2">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <a class="brand" href="../"><img src="../assets/xpeng-logo.jpeg" width="48" height="30" alt="">XPENG AI</a>
-    <nav aria-label="Project navigation"><a href="#overview">Overview</a><a href="#resources">Resources</a><a href="#reference">Reference</a></nav>
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="XPENG AI organization home">
+      <img src="../assets/xpeng-logo.jpeg" width="48" height="30" alt="">
+      <span>XPENG AI</span>
+    </a>
+    <nav aria-label="Project navigation">
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#resources">Resources</a>
+    </nav>
   </header>
+
   <main>
     <section class="hero" aria-labelledby="title">
-      <p class="eyebrow">Speech intelligence / XPENG AI</p>
-      <h1 id="title">X-AuT<span>.</span></h1>
-      <h2>Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation</h2>
-      <p class="affiliation">XPeng Inc.</p>
-      <p class="intro">Smaller audio encoders. Reliable speech recognition.<br>A progressive approach to efficient speech-language models.</p>
-      <div class="hero-links" aria-label="Project resources">
-        <a href="https://arxiv.org/abs/2609.11412">Paper <span aria-hidden="true">&#8599;</span></a>
-        <a href="https://github.com/XPENG-AI/X-AuT">GitHub <span aria-hidden="true">&#8599;</span></a>
-        <a href="https://huggingface.co/XPENG-AI/X-AuT">Model <span aria-hidden="true">&#8599;</span></a>
+      <div class="hero-copy">
+        <p class="eyebrow">Speech intelligence / XPENG AI</p>
+        <h1 id="title">X-AuT<span>.</span></h1>
+        <p class="subtitle">Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation</p>
+        <p class="authors">
+          Haojun Zhang, Yi Zou<sup>1</sup>, Min Chen, Qize Yu, Lianrui Fan, Xini Ding,
+          Hao Li, Shuchang Zhou, Xianming Liu, Shiyu Huang<sup>2</sup>
+        </p>
+        <p class="author-note"><sup>1</sup> Corresponding author &nbsp; <sup>2</sup> Project leader &nbsp; XPeng Inc.</p>
+        <div class="hero-links" aria-label="Primary project resources">
+          <a href="https://arxiv.org/abs/2609.11412">Paper <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://github.com/XPENG-AI/X-AuT">GitHub <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://huggingface.co/XPENG-AI/X-AuT">Model <span aria-hidden="true">&#8599;</span></a>
+        </div>
       </div>
+      <img class="hero-mascot" src="assets/xpomni_logo.jpg" width="1000" height="783" alt="XPENG AI speech research mascot wearing a headset">
     </section>
-    <section id="overview" class="overview">
+
+    <section class="overview" id="overview">
       <p class="eyebrow">01 / Overview</p>
-      <div><h2>Efficiency starts with what we preserve.</h2><p>Deep audio encoders connect speech to language models, but reducing their depth can disrupt the representations that recognition depends on. X-AuT explores how to build compact audio encoders while preserving reliable recognition behavior.</p><p>Our approach combines progressive compression with knowledge transfer from a larger model, guiding a smaller speech system toward an effective balance of recognition quality and inference cost.</p></div>
-    </section>
-    <section class="focus" aria-label="Research directions">
-      <article><span>01</span><h3>Behavior-aware</h3><p>Guide compression through the recognition behavior of the model.</p></article>
-      <article><span>02</span><h3>Progressive</h3><p>Reduce encoder depth in controlled steps while recovering model quality.</p></article>
-      <article><span>03</span><h3>Cross-scale</h3><p>Transfer knowledge from a larger teacher to a compact speech model.</p></article>
-    </section>
-    <section class="release" id="resources">
-      <p class="eyebrow">02 / Resources</p>
-      <h2>From research to practice.</h2>
-      <p>The official repository provides standalone checkpoint inference and a compact LoRA finetuning example for the 14-layer model. The model weights are available on Hugging Face.</p>
-      <div class="resource-list">
-        <a href="https://xpeng-ai.github.io/x-aut"><span>Project website</span><span>xpeng-ai.github.io/x-aut &#8599;</span></a>
-        <a href="https://arxiv.org/abs/2609.11412"><span>Paper</span><span>arXiv:2609.11412 &#8599;</span></a>
-        <a href="https://github.com/XPENG-AI/X-AuT"><span>Source code</span><span>XPENG-AI/X-AuT &#8599;</span></a>
-        <a href="https://huggingface.co/XPENG-AI/X-AuT"><span>Model weights</span><span>XPENG-AI/X-AuT &#8599;</span></a>
+      <div class="section-copy">
+        <h2>Compress the encoder. Preserve the speech behavior.</h2>
+        <p>Removing complete audio-encoder blocks gives speech language models a regular, deployment-friendly architecture, but it also perturbs the embeddings consumed by the decoder. The resulting mismatch can trigger deletion errors and premature end-of-sequence predictions.</p>
+        <p>X-AuT treats layer selection and recovery as a coupled problem. Starting from Qwen3-ASR-0.6B, it uses matched short-budget behavioral probes to select recoverable layer combinations, then restores the pruned model with representation alignment, cross-scale distillation, scheduled student-policy supervision, and LoRA finetuning.</p>
       </div>
     </section>
+
+    <section class="metrics" aria-label="Key results">
+      <div><strong>18 &rarr; 16 &rarr; 14</strong><span>Progressive encoder depth</span></div>
+      <div><strong>20.70%</strong><span>Fewer audio-tower parameters at 14 layers</span></div>
+      <div><strong>5.27%</strong><span>Macro error for the 16-layer operating point</span></div>
+      <div><strong>21.4%</strong><span>Lower 14-layer encoder latency on in-vehicle PPU</span></div>
+    </section>
+
+    <section class="content-section" id="method">
+      <p class="eyebrow">02 / Method</p>
+      <div class="section-copy">
+        <h2>A progressive path from data selection to recovery.</h2>
+        <ol class="method-flow">
+          <li>
+            <span>01</span>
+            <div><h3>Transcript-consistency filtering</h3><p>A source pool exceeding 280k hours is ranked into nine agreement tiers using the source transcript and two offline ASR hypotheses. Reported training uses the highest-agreement class, with source reweighting during final finetuning.</p></div>
+          </li>
+          <li>
+            <span>02</span>
+            <div><h3>Behavior-driven layer selection</h3><p>Matched recovery probes compare candidate removals on a fixed development suite. X-AuT first removes original layers {1, 18}, then selects {5, 6} for the second pruning hop; pair interactions are measured rather than inferred from single-layer rankings.</p></div>
+          </li>
+          <li>
+            <span>03</span>
+            <div><h3>Three-stage recovery</h3><p>Stage 0 aligns intermediate, bridge, and logit representations. Stage 1 combines teacher-forced distillation with scheduled student-policy contexts. Stage 2 performs low-rate gold-transcript LoRA finetuning.</p></div>
+          </li>
+          <li>
+            <span>04</span>
+            <div><h3>Cross-scale supervision</h3><p>A frozen Qwen3-ASR-1.7B teacher guides the smaller student through learned 2048-to-1024 projections and is discarded at inference. The pretrained language-model backbone remains frozen while attention LoRA adapters recover the decoder interface.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="content-section results" id="results">
+      <p class="eyebrow">03 / Results</p>
+      <div class="section-copy">
+        <h2>Two practical accuracy-efficiency operating points.</h2>
+        <p>Evaluation covers ten public Chinese-English benchmarks, using CER for Chinese and WER for English. The macro mean weights each benchmark equally.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Model</th><th>Audio-tower params</th><th>Param. change</th><th>Macro error</th><th>Relative change</th></tr></thead>
+            <tbody>
+              <tr><td>Full-18 baseline</td><td>186.376M</td><td>-</td><td>5.61%</td><td>-</td></tr>
+              <tr class="highlight"><td>X-AuT-16, Stage 2</td><td>167.085M</td><td>&minus;10.35%</td><td>5.27%</td><td>&minus;6.1%</td></tr>
+              <tr><td>X-AuT-14, Stage 2</td><td>147.794M</td><td>&minus;20.70%</td><td>5.75%</td><td>+2.5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="result-notes">
+          <div><strong>5.55% vs. 8.45%</strong><span>Cross-scale teacher versus same-scale self-distillation at the matched 16-layer Stage 1 checkpoint.</span></div>
+          <div><strong>5.75% vs. 6.73%</strong><span>Progressive 18-to-14 pruning versus direct pruning under the same nominal recovery budget.</span></div>
+        </div>
+
+        <h3 class="subheading">14-layer inference efficiency</h3>
+        <div class="table-wrap compact-table">
+          <table>
+            <thead><tr><th>Metric vs. Full-18</th><th>In-vehicle PPU</th><th>NVIDIA H800</th></tr></thead>
+            <tbody>
+              <tr><td>Encoder latency</td><td>&minus;21.4%</td><td>&minus;11.4%</td></tr>
+              <tr><td>End-to-end latency</td><td>&minus;4.7%</td><td>&minus;2.6%</td></tr>
+              <tr><td>Peak memory</td><td>&minus;4.4%</td><td>&minus;2.8%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caveat">Results are descriptive single-run measurements from one model family. The study does not include repeated seeds, utterance-level confidence intervals, or run-to-run latency variance.</p>
+      </div>
+    </section>
+
+    <section class="release" id="resources">
+      <p class="eyebrow">04 / Open release</p>
+      <div class="section-copy">
+        <h2>Use the model and adapt it.</h2>
+        <p>The public release includes the complete 14-layer checkpoint, standalone inference, and a compact LoRA adaptation example. The example is a practical Stage-2-style recipe, not a full reproduction of the private three-stage training and data pipeline.</p>
+        <div class="release-scope">
+          <div><strong>Model weights</strong><span>Complete safetensors checkpoint with tokenizer and preprocessor.</span></div>
+          <div><strong>Inference</strong><span>Standalone script for local audio transcription.</span></div>
+          <div><strong>Adaptation</strong><span>Minimal LoRA finetuning recipe and example manifests.</span></div>
+        </div>
+        <div class="resource-list">
+          <a href="https://xpeng-ai.github.io/x-aut"><span>Project website</span><span>xpeng-ai.github.io/x-aut &#8599;</span></a>
+          <a href="https://arxiv.org/abs/2609.11412"><span>Paper</span><span>arXiv:2609.11412 &#8599;</span></a>
+          <a href="https://github.com/XPENG-AI/X-AuT"><span>Source code</span><span>XPENG-AI/X-AuT &#8599;</span></a>
+          <a href="https://huggingface.co/XPENG-AI/X-AuT"><span>Model weights</span><span>XPENG-AI/X-AuT &#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
     <section class="reference" id="reference">
-      <p class="eyebrow">03 / Reference</p>
-      <h2>Cite X-AuT.</h2>
-      <pre><code>@misc{zhang2026xautprogressiveaudioencodercompression,
+      <p class="eyebrow">05 / Reference</p>
+      <div class="section-copy">
+        <div class="reference-heading">
+          <h2>Cite X-AuT.</h2>
+          <button class="copy-button" type="button" aria-live="polite">Copy BibTeX</button>
+        </div>
+        <pre><code id="bibtex">@misc{zhang2026xautprogressiveaudioencodercompression,
   title={X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation},
   author={Haojun Zhang and Yi Zou and Min Chen and Qize Yu and Lianrui Fan and Xini Ding and Hao Li and Shuchang Zhou and Xianming Liu and Shiyu Huang},
   year={2026},
@@ -59,8 +157,26 @@
   primaryClass={cs.SD},
   url={https://arxiv.org/abs/2609.11412},
 }</code></pre>
+      </div>
     </section>
   </main>
-  <footer><span>X-AuT / XPENG AI</span><a href="../">Organization home</a></footer>
+
+  <footer>
+    <span>X-AuT / XPENG AI</span>
+    <a href="../">Organization home</a>
+  </footer>
+
+  <script>
+    const copyButton = document.querySelector(".copy-button");
+    copyButton.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(document.getElementById("bibtex").textContent);
+        copyButton.textContent = "Copied";
+        window.setTimeout(() => { copyButton.textContent = "Copy BibTeX"; }, 1600);
+      } catch {
+        copyButton.textContent = "Select and copy";
+      }
+    });
+  </script>
 </body>
 </html>
