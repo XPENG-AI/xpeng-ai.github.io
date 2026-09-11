@@ -37,7 +37,7 @@ a:focus-visible {
 
 .site-header {
   display: flex;
-  min-height: 68px;
+  min-height: 58px;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
@@ -73,15 +73,15 @@ nav a:hover { color: var(--ink); }
 
 .hero {
   display: grid;
-  min-height: 480px;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-  gap: clamp(48px, 8vw, 100px);
+  min-height: 360px;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 260px);
+  gap: clamp(40px, 6vw, 72px);
   align-items: center;
-  padding: 64px 0;
+  padding: 40px 0;
 }
 
 .eyebrow {
-  margin: 0 0 18px;
+  margin: 0 0 12px;
   color: var(--signal);
   font-size: 11px;
   font-weight: 700;
@@ -93,15 +93,15 @@ h1, h2, h3, p { letter-spacing: 0; }
 
 h1 {
   margin: 0;
-  font-size: 58px;
+  font-size: 48px;
   font-weight: 650;
   line-height: 1;
 }
 
 .lead {
   max-width: 570px;
-  margin: 24px 0 8px;
-  font-size: 21px;
+  margin: 18px 0 6px;
+  font-size: 19px;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -111,14 +111,14 @@ h1 {
   margin: 0;
   color: var(--muted);
   font-size: 15px;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .hero-links {
   display: flex;
   gap: 28px;
   align-items: center;
-  margin-top: 28px;
+  margin-top: 20px;
 }
 
 .hero-links a {
@@ -142,13 +142,14 @@ h1 {
 
 .hero-logo {
   display: block;
-  width: 100%;
+  width: min(100%, 260px);
   height: auto;
+  justify-self: end;
   object-fit: contain;
 }
 
 .projects {
-  padding: 52px 0 64px;
+  padding: 36px 0 44px;
   border-top: 1px solid var(--line);
 }
 
@@ -157,14 +158,14 @@ h1 {
   grid-template-columns: 1fr minmax(220px, 360px);
   gap: 48px;
   align-items: end;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .section-header .eyebrow { margin-bottom: 10px; }
 
 .section-header h2 {
   margin: 0;
-  font-size: 30px;
+  font-size: 27px;
   font-weight: 600;
 }
 
@@ -179,9 +180,9 @@ h1 {
   display: grid;
   grid-template-columns: 48px minmax(170px, 0.6fr) minmax(260px, 1fr) 28px;
   gap: 28px;
-  min-height: 112px;
+  min-height: 88px;
   align-items: center;
-  padding: 20px 22px;
+  padding: 14px 18px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   text-decoration: none;
@@ -211,7 +212,7 @@ h1 {
 
 footer {
   display: flex;
-  min-height: 68px;
+  min-height: 58px;
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--line);
@@ -227,36 +228,37 @@ footer a {
 
 @media (max-width: 760px) {
   .site-header, main, footer { width: min(100% - 32px, 1120px); }
-  .site-header { min-height: 62px; }
+  .site-header { min-height: 56px; }
   nav { gap: 18px; }
 
   .hero {
     min-height: auto;
     grid-template-columns: 1fr;
-    gap: 34px;
-    padding: 42px 0 48px;
+    gap: 24px;
+    padding: 32px 0 36px;
   }
 
-  h1 { font-size: 44px; }
+  h1 { font-size: 38px; }
 
   .lead {
-    margin-top: 20px;
+    margin-top: 16px;
     font-size: 18px;
   }
 
   .supporting-copy { font-size: 14px; }
 
   .hero-logo {
-    width: min(76%, 320px);
+    width: min(56%, 220px);
     margin-inline: auto;
+    justify-self: center;
   }
 
-  .projects { padding: 40px 0 48px; }
+  .projects { padding: 30px 0 36px; }
 
   .section-header {
     grid-template-columns: 1fr;
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
 
   .section-header h2 { font-size: 25px; }
@@ -265,7 +267,7 @@ footer a {
     grid-template-columns: 32px 1fr 22px;
     gap: 14px;
     min-height: 0;
-    padding: 20px 4px;
+    padding: 16px 4px;
   }
 
   .project-title h3 { font-size: 21px; }
