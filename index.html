@@ -1,57 +1,68 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="XPENG AI 官方 GitHub 组织主页。" />
+    <meta name="description" content="The official home for XPENG AI open-source projects and engineering work." />
     <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content="XPENG AI" />
-    <meta property="og:description" content="XPENG AI 官方 GitHub 组织主页。" />
-    <meta property="og:image" content="https://xpeng-ai.github.io/assets/xpeng-logo.jpeg" />
+    <meta property="og:description" content="Open-source projects and research from XPENG AI." />
+    <meta property="og:image" content="https://xpeng-ai.github.io/assets/xpeng-favicon.png" />
     <title>XPENG AI</title>
     <link rel="icon" type="image/png" sizes="512x512" href="assets/xpeng-favicon.png?v=2" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="wordmark" href="/" aria-label="XPENG AI 首页">XPENG <span>AI</span></a>
-      <nav aria-label="主导航">
-        <a href="#about">关于</a>
-        <a href="https://github.com/XPENG-AI">GitHub <span aria-hidden="true">↗</span></a>
+      <a class="brand" href="/" aria-label="XPENG AI home">
+        <img src="assets/xpeng-favicon.png" alt="" width="34" height="34" />
+        <span>XPENG AI</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="https://github.com/XPENG-AI">GitHub <span aria-hidden="true">&#8599;</span></a>
       </nav>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="kicker"><span></span> Official AI Organization</p>
-          <h1 id="hero-title">XPENG<br /><strong>AI</strong></h1>
-          <p class="lead">探索智能出行的技术边界。</p>
-          <p class="sublead">The official home for XPENG AI open-source projects and engineering work.</p>
-          <a class="primary-link" href="https://github.com/XPENG-AI">
-            访问 GitHub 组织
-            <span aria-hidden="true">↗</span>
-          </a>
+          <p class="eyebrow">Official AI Organization</p>
+          <h1 id="hero-title">XPENG AI</h1>
+          <p class="lead">Open-source research and engineering for intelligent mobility.</p>
+          <p class="supporting-copy">We share selected projects, practical tools, and technical work from the XPENG AI team.</p>
+          <div class="hero-links">
+            <a class="primary-link" href="#projects">Explore projects <span aria-hidden="true">&#8595;</span></a>
+            <a href="https://github.com/XPENG-AI">View on GitHub <span aria-hidden="true">&#8599;</span></a>
+          </div>
         </div>
-        <div class="hero-visual">
-          <img src="assets/xpeng-logo.jpeg" alt="XPENG 标志" width="960" height="586" />
-          <p aria-hidden="true">INTELLIGENCE / MOBILITY / FUTURE</p>
-        </div>
+        <img class="hero-logo" src="assets/xpeng-logo.jpeg" alt="XPENG logo" width="960" height="586" />
       </section>
 
-      <section class="about" id="about" aria-labelledby="about-title">
-        <p class="section-label">01 / ABOUT</p>
-        <div class="about-copy">
-          <h2 id="about-title">Built for what moves next.</h2>
-          <p>这里将集中展示 XPENG AI 的公开项目、技术成果与工程实践。</p>
-        </div>
-        <a class="arrow-link" href="https://github.com/XPENG-AI" aria-label="在 GitHub 上查看 XPENG AI">↗</a>
+      <section class="projects" id="projects" aria-labelledby="projects-title">
+        <header class="section-header">
+          <div>
+            <p class="eyebrow">Projects</p>
+            <h2 id="projects-title">Research and open source</h2>
+          </div>
+          <p>More projects will be added as they become available.</p>
+        </header>
+
+        <a class="project-row" href="x-aut/">
+          <span class="project-index">01</span>
+          <div class="project-title">
+            <h3>X-AuT</h3>
+            <span>Speech Intelligence</span>
+          </div>
+          <p>Progressive audio-encoder compression for speech LLMs with cross-scale distillation.</p>
+          <span class="project-arrow" aria-hidden="true">&#8599;</span>
+        </a>
       </section>
     </main>
 
     <footer>
-      <p>© <span id="year"></span> XPENG AI</p>
-      <p>CHINA <span></span> GITHUB.COM/XPENG-AI</p>
+      <p>&copy; <span id="year"></span> XPENG AI</p>
+      <a href="https://github.com/XPENG-AI">github.com/XPENG-AI</a>
     </footer>
 
     <script>
