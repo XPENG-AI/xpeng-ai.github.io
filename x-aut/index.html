@@ -10,15 +10,22 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header><a class="brand" href="../"><img src="../assets/xpeng-logo.jpeg" width="48" height="30" alt="">XPENG AI</a><a href="#overview">Overview</a></header>
+  <header>
+    <a class="brand" href="../"><img src="../assets/xpeng-logo.jpeg" width="48" height="30" alt="">XPENG AI</a>
+    <nav aria-label="Project navigation"><a href="#overview">Overview</a><a href="#resources">Resources</a><a href="#reference">Reference</a></nav>
+  </header>
   <main>
     <section class="hero" aria-labelledby="title">
-      <p class="eyebrow">Speech intelligence / Research preview</p>
+      <p class="eyebrow">Speech intelligence / XPENG AI</p>
       <h1 id="title">X-AuT<span>.</span></h1>
       <h2>Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation</h2>
       <p class="affiliation">XPeng Inc.</p>
       <p class="intro">Smaller audio encoders. Reliable speech recognition.<br>A progressive approach to efficient speech-language models.</p>
-      <a class="explore" href="#overview">Explore the research <span aria-hidden="true">&#8595;</span></a>
+      <div class="hero-links" aria-label="Project resources">
+        <a href="https://arxiv.org/abs/2609.11412">Paper <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://github.com/XPENG-AI/X-AuT">GitHub <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://huggingface.co/XPENG-AI/X-AuT">Model <span aria-hidden="true">&#8599;</span></a>
+      </div>
     </section>
     <section id="overview" class="overview">
       <p class="eyebrow">01 / Overview</p>
@@ -29,7 +36,30 @@
       <article><span>02</span><h3>Progressive</h3><p>Reduce encoder depth in controlled steps while recovering model quality.</p></article>
       <article><span>03</span><h3>Cross-scale</h3><p>Transfer knowledge from a larger teacher to a compact speech model.</p></article>
     </section>
-    <section class="release"><p class="eyebrow">Research materials</p><h2>From research to practice.</h2><p>The official repository describes standalone checkpoint inference and a compact LoRA finetuning example for the 14-layer model. The example is not a full reproduction of the three-stage training pipeline.</p><a href="https://github.com/XPENG-AI/X-AuT">Official X-AuT repository &#8599;</a><p class="availability">Repository access may currently require permission. The paper link will be added when publicly available.</p></section>
+    <section class="release" id="resources">
+      <p class="eyebrow">02 / Resources</p>
+      <h2>From research to practice.</h2>
+      <p>The official repository provides standalone checkpoint inference and a compact LoRA finetuning example for the 14-layer model. The model weights are available on Hugging Face.</p>
+      <div class="resource-list">
+        <a href="https://xpeng-ai.github.io/x-aut"><span>Project website</span><span>xpeng-ai.github.io/x-aut &#8599;</span></a>
+        <a href="https://arxiv.org/abs/2609.11412"><span>Paper</span><span>arXiv:2609.11412 &#8599;</span></a>
+        <a href="https://github.com/XPENG-AI/X-AuT"><span>Source code</span><span>XPENG-AI/X-AuT &#8599;</span></a>
+        <a href="https://huggingface.co/XPENG-AI/X-AuT"><span>Model weights</span><span>XPENG-AI/X-AuT &#8599;</span></a>
+      </div>
+    </section>
+    <section class="reference" id="reference">
+      <p class="eyebrow">03 / Reference</p>
+      <h2>Cite X-AuT.</h2>
+      <pre><code>@misc{zhang2026xautprogressiveaudioencodercompression,
+  title={X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation},
+  author={Haojun Zhang and Yi Zou and Min Chen and Qize Yu and Lianrui Fan and Xini Ding and Hao Li and Shuchang Zhou and Xianming Liu and Shiyu Huang},
+  year={2026},
+  eprint={2609.11412},
+  archivePrefix={arXiv},
+  primaryClass={cs.SD},
+  url={https://arxiv.org/abs/2609.11412},
+}</code></pre>
+    </section>
   </main>
   <footer><span>X-AuT / XPENG AI</span><a href="../">Organization home</a></footer>
 </body>
