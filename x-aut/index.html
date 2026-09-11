@@ -15,7 +15,7 @@
 <body>
   <header class="site-header">
     <a class="brand" href="../" aria-label="XPENG AI organization home">
-      <img src="../assets/xpeng-logo.jpeg" width="48" height="30" alt="">
+      <img src="../assets/xpeng-favicon.png" width="34" height="34" alt="">
       <span>XPENG AI</span>
     </a>
     <nav aria-label="Project navigation">
@@ -37,9 +37,9 @@
         </p>
         <p class="author-note"><sup>1</sup> Corresponding author &nbsp; <sup>2</sup> Project leader &nbsp; XPeng Inc.</p>
         <div class="hero-links" aria-label="Primary project resources">
-          <a href="https://arxiv.org/abs/2609.11412">Paper <span aria-hidden="true">&#8599;</span></a>
-          <a href="https://github.com/XPENG-AI/X-AuT">GitHub <span aria-hidden="true">&#8599;</span></a>
-          <a href="https://huggingface.co/XPENG-AI/X-AuT">Model <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://arxiv.org/abs/2609.11412"><img src="assets/arxiv.svg" width="18" height="18" alt="">arXiv <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://github.com/XPENG-AI/X-AuT"><img src="assets/github.svg" width="18" height="18" alt="">GitHub <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://huggingface.co/XPENG-AI/X-AuT"><img src="assets/huggingface.svg" width="18" height="18" alt="">Hugging Face <span aria-hidden="true">&#8599;</span></a>
         </div>
       </div>
       <img class="hero-mascot" src="assets/xpomni_logo.jpg" width="1000" height="783" alt="XPENG AI speech research mascot wearing a headset">
@@ -83,6 +83,12 @@
             <div><h3>Cross-scale supervision</h3><p>A frozen Qwen3-ASR-1.7B teacher guides the smaller student through learned 2048-to-1024 projections and is discarded at inference. The pretrained language-model backbone remains frozen while attention LoRA adapters recover the decoder interface.</p></div>
           </li>
         </ol>
+        <figure class="paper-figure pipeline-figure">
+          <a href="assets/xaut_pipeline.jpg" aria-label="Open the X-AuT method overview at full size">
+            <img src="assets/xaut_pipeline.jpg" width="1400" height="933" loading="lazy" alt="X-AuT pipeline from transcript filtering and behavioral probes through progressive pruning, recovery, and evaluation">
+          </a>
+          <figcaption>Method overview. The pipeline connects transcript-consistency filtering, behavioral probes, progressive 18-to-14 pruning, three-stage recovery, and evaluation.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -101,6 +107,12 @@
             </tbody>
           </table>
         </div>
+        <figure class="paper-figure result-figure">
+          <a href="assets/xaut_macro_error.png" aria-label="Open the macro error figure at full size">
+            <img src="assets/xaut_macro_error.png" width="1686" height="891" loading="lazy" alt="Macro mean error for the 16-layer and 14-layer X-AuT models after Stage 1 and Stage 2">
+          </a>
+          <figcaption>Stage 2 improves both operating points. The dashed line marks the 5.61% Full-18 baseline.</figcaption>
+        </figure>
 
         <div class="result-notes">
           <div><strong>5.55% vs. 8.45%</strong><span>Cross-scale teacher versus same-scale self-distillation at the matched 16-layer Stage 1 checkpoint.</span></div>
