@@ -130,6 +130,13 @@ h1 span { color: var(--signal); }
   line-height: 1.65;
 }
 
+.authors a {
+  text-decoration-color: color-mix(in srgb, currentColor 50%, transparent);
+  text-underline-offset: 3px;
+}
+
+.authors a:hover { color: var(--ink); }
+
 .author-note {
   margin: 5px 0 0;
   color: var(--muted);
