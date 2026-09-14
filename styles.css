@@ -180,9 +180,10 @@ h1 {
   align-items: center;
   padding: 14px 18px;
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
   text-decoration: none;
 }
+
+.project-row:last-child { border-bottom: 1px solid var(--line); }
 
 .project-row:hover { background: var(--soft); }
 
