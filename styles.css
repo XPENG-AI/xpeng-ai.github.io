@@ -174,7 +174,7 @@ h1 {
 
 .project-row {
   display: grid;
-  grid-template-columns: 48px minmax(170px, 0.6fr) minmax(260px, 1fr) 28px;
+  grid-template-columns: minmax(190px, 0.6fr) minmax(260px, 1fr) 28px;
   gap: 28px;
   min-height: 88px;
   align-items: center;
@@ -187,7 +187,7 @@ h1 {
 
 .project-row:hover { background: var(--soft); }
 
-.project-index, .project-title span {
+.project-title span {
   color: var(--muted);
   font-size: 11px;
   text-transform: uppercase;
@@ -261,14 +261,14 @@ footer a {
   .section-header h2 { font-size: 25px; }
 
   .project-row {
-    grid-template-columns: 32px 1fr 22px;
+    grid-template-columns: 1fr 22px;
     gap: 14px;
     min-height: 0;
     padding: 16px 4px;
   }
 
   .project-title h3 { font-size: 21px; }
-  .project-row > p { grid-column: 2 / -1; }
+  .project-row > p { grid-column: 1 / -1; }
 }
 
 @media (max-width: 440px) {
