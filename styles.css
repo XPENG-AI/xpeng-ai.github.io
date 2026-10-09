@@ -174,11 +174,11 @@ h1 {
 
 .project-row {
   display: grid;
-  grid-template-columns: minmax(190px, 0.6fr) minmax(260px, 1fr) 28px;
-  gap: 28px;
+  grid-template-columns: minmax(180px, 250px) minmax(0, 1fr) 28px;
+  gap: 26px;
   min-height: 88px;
   align-items: center;
-  padding: 14px 18px;
+  padding: 18px;
   border-top: 1px solid var(--line);
   text-decoration: none;
 }
@@ -186,6 +186,20 @@ h1 {
 .project-row:last-child { border-bottom: 1px solid var(--line); }
 
 .project-row:hover { background: var(--soft); }
+
+.project-media {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  overflow: hidden;
+}
+
+.project-media img,
+.project-media video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
 
 .project-title span {
   color: var(--muted);
@@ -198,7 +212,7 @@ h1 {
   font-size: 24px;
 }
 
-.project-row > p {
+.project-body > p {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
@@ -267,8 +281,10 @@ footer a {
     padding: 16px 4px;
   }
 
+  .project-media { grid-column: 1 / -1; }
+
   .project-title h3 { font-size: 21px; }
-  .project-row > p { grid-column: 1 / -1; }
+  .project-body > p { grid-column: 1; }
 }
 
 @media (max-width: 440px) {
